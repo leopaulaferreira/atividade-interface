@@ -14,7 +14,7 @@ Projeto de interface web em HTML, CSS e JavaScript com exemplos de componentes i
 
 ## Demonstração
 
-![Demonstração da interface](./demonstracao-interface.svg)
+![Demonstração da interface](./af02.png)
 
 ## Objetivo
 
