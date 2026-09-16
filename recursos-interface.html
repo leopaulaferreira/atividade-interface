@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exemplos de Recursos de User Interface</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f4f4f4;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 12px;
+    }
+
+    #mySearch {
+      width: 100%;
+      font-size: 18px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    #myMenu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    #myMenu li a {
+      display: block;
+      padding: 12px 14px;
+      text-decoration: none;
+      color: #222;
+      background: #fafafa;
+      border-bottom: 1px solid #ddd;
+    }
+
+    #myMenu li a:hover {
+      background: #eee;
+    }
+
+    .tabs {
+      margin-top: 30px;
+    }
+
+    .tab-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .tab-button {
+      padding: 10px 16px;
+      border: 1px solid #ccc;
+      background: #f1f1f1;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .tab-button.active {
+      background: #333;
+      color: white;
+      border-color: #333;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .btn-modal {
+      margin-top: 20px;
+      padding: 10px 18px;
+      border: none;
+      background: #2d7ff9;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-box {
+      background: white;
+      width: 400px;
+      max-width: 90%;
+      padding: 20px;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      border: none;
+      background: transparent;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Busca por categorias</h2>
+
+    <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Pesquisar..." title="Digite uma categoria">
+
+    <ul id="myMenu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+      <li><a href="#">PHP</a></li>
+      <li><a href="#">Python</a></li>
+      <li><a href="#">jQuery</a></li>
+      <li><a href="#">SQL</a></li>
+      <li><a href="#">Bootstrap</a></li>
+      <li><a href="#">Node.js</a></li>
+    </ul>
+
+    <div class="tabs">
+      <h2>Abas</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab('tab1')">Home</button>
+        <button class="tab-button" onclick="openTab('tab2')">Sobre</button>
+        <button class="tab-button" onclick="openTab('tab3')">Contato</button>
+      </div>
+
+      <div id="tab1" class="tab-content active">
+        Conteúdo da aba Home. Aqui você pode mostrar uma introdução ao projeto.
+      </div>
+
+      <div id="tab2" class="tab-content">
+        Conteúdo da aba Sobre. Explica o objetivo da interface e sua estrutura.
+      </div>
+
+      <div id="tab3" class="tab-content">
+        Conteúdo da aba Contato. Pode conter informações de suporte ou redes sociais.
+      </div>
+    </div>
+
+    <button class="btn-modal" onclick="openModal()">Abrir modal</button>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button class="close" onclick="closeModal()">&times;</button>
+      <h3>Modal</h3>
+      <p>Este é um exemplo de modal para mostrar informações extras sem sair da página.</p>
+      <button class="btn-modal" onclick="closeModal()">Fechar</button>
+    </div>
+  </div>
+
+  <script>
+    function myFunction() {
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("mySearch");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myMenu");
+      li = ul.getElementsByTagName("li");
+
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+
+    function openTab(id) {
+      var tabs = document.getElementsByClassName("tab-content");
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove("active");
+      }
+
+      var buttons = document.getElementsByClassName("tab-button");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+
+      document.getElementById(id).classList.add("active");
+      event.currentTarget.classList.add("active");
+    }
+
+    function openModal() {
+      document.getElementById("modal").classList.add("show");
+    }
+
+    function closeModal() {
+      document.getElementById("modal").classList.remove("show");
+    }
+  </script>
+</body>
+</html>
