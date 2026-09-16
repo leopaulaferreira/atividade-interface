@@ -1,11 +1,11 @@
 # Atividade 02 - Combinação de Recursos na Interface do Usuário
 
-**Aluno:** Leonardo de Paula Ferreira
-**Turma:** 04AN
-**Professor:** Claudio Alexandre Gananca
-**Instituição:** Universidade Municipal de São Caetano do Sul - USCS
-**Curso:** ADS - Análise e Desenvolvimento de Sistemas
-**Disciplina:** Padrões de Usabilidade e Desenvolvimento de Interfaces
+**Aluno:** Leonardo de Paula Ferreira  
+**Turma:** 04AN  
+**Professor:** Claudio Alexandre Gananca  
+**Instituição:** Universidade Municipal de São Caetano do Sul - USCS  
+**Curso:** ADS - Análise e Desenvolvimento de Sistemas  
+**Disciplina:** Padrões de Usabilidade e Desenvolvimento de Interfaces  
 **Data de entrega:** 17/09/2026
 
 # AF02 Interface
